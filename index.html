@@ -15,7 +15,7 @@ marked.setOptions({
   breaks: true
 });
 
-fetch('README.md?t=' + Date.now())
+fetch('/PS5-Smart-Cooler-guide/README.md?t=' + Date.now())
   .then(r => {
     if (!r.ok) throw new Error('README.md не найден');
     return r.text();
