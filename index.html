@@ -8,6 +8,11 @@
 </head>
 <body>
 <div id="content"></div>
+<button id="backToTop" onclick="document.getElementById('top').scrollIntoView()">
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px">
+    <path d="M480-528 296-344l-56-56 240-240 240 240-56 56-184-184Z"/>
+  </svg>
+</button>
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <script>
 marked.setOptions({
@@ -88,6 +93,26 @@ fetch('/PS5-Smart-Cooler-guide/README.md?t=' + Date.now())
       el.setAttribute('target', '_blank');
       el.setAttribute('rel', 'noopener noreferrer');
     });
+    
+    // === ПОКАЗ КНОПКИ ТОЛЬКО ПОСЛЕ WARNING ===
+    const warningElement = document.getElementById('warning');
+    const backToTopBtn = document.getElementById('backToTop');
+    
+    function toggleBackToTop() {
+      if (!warningElement) return;
+      const warningRect = warningElement.getBoundingClientRect();
+      // Если верх warning скрыт (ушел вверх за экран)
+      if (warningRect.top < 0) {
+        backToTopBtn.style.display = 'flex';
+      } else {
+        backToTopBtn.style.display = 'none';
+      }
+    }
+    
+    // Проверяем при скролле
+    window.addEventListener('scroll', toggleBackToTop);
+    // Проверяем сразу после загрузки
+    setTimeout(toggleBackToTop, 100);
   })
   .catch(err => {
     document.getElementById('content').innerHTML = `
