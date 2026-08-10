@@ -1,13 +1,18 @@
+/* ============================================
+   ROOT ПЕРЕМЕННЫЕ
+   ============================================ */
 :root {
-  --bg-body: #eee;
-  --bg-content: #fff;
+  /* Цвета */
+  --bg-body: #eeeeee;
+  --bg-content: #ffffff;
   --bg-block: #f0f0f0;
   --text-primary: #000000;
-  --text-secondary: #222222;
+  --text-secondary: #000000bb;
   --accent: #47acff;
   --link: #0058cc;
   --border: #00000020;
   
+  /* Размеры шрифтов */
   --fs-xs: 0.7rem;
   --fs-sm: 0.8rem;
   --fs-md: 0.9rem;
@@ -15,14 +20,19 @@
   --fs-xl: 1.1rem;
   --fs-xx: 1.3rem;
   
+  /* Отступы */
   --sp-1: 4px;
   --sp-2: 8px;
   --sp-3: 16px;
   --sp-4: 32px;
   
+  /* Скругления */
   --radius: 8px;
 }
 
+/* ============================================
+   RESET & БАЗА
+   ============================================ */
 * {
   margin: 0;
   padding: 0;
@@ -31,7 +41,6 @@
 
 body {
   background: var(--bg-body);
-  color: var(--text-secondary);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   padding: 0;
   line-height: 1.7;
@@ -39,6 +48,9 @@ body {
   max-width: 100%;
 }
 
+/* ============================================
+   КОНТЕНТ
+   ============================================ */
 #content {
   background: var(--bg-content);
   padding: var(--sp-3) var(--sp-3);
@@ -46,14 +58,15 @@ body {
   margin: 0 auto;
 }
 
+/* ============================================
+   ЗАГОЛОВКИ
+   ============================================ */
 h1, h2, h3, h4, h5, h6 {
   color: var(--text-primary);
-  /* text-align: center; */
 }
 
 h1 {
   font-size: var(--fs-xx);
-  /* padding-top: var(--sp-4); */
   text-align: center;
   margin: var(--sp-3) 0 var(--sp-4);
 }
@@ -66,6 +79,7 @@ h2 {
   padding-left: var(--sp-3);
 }
 
+/* Полоска слева у h2 */
 h2::before {
   content: '';
   position: absolute;
@@ -87,26 +101,38 @@ h4 {
   margin-bottom: var(--sp-4);
 }
 
+/* ============================================
+   ТЕКСТ
+   ============================================ */
 p {
-    color: var(--text-primary);
-    margin-bottom: var(--sp-4);
-}
-
-ul {
-    margin-bottom: var(--sp-4);
-}
-
-blockquote, td, th {
   color: var(--text-primary);
-  font-size: var(--fs-sm);
   margin-bottom: var(--sp-4);
 }
 
-em {
-    color: var(--text-secondary);
-    margin-bottom: var(--sp-3);
+ul, ol {
+  margin: var(--sp-2) 0 var(--sp-4) var(--sp-3);
 }
 
+ul {
+  list-style-type: disc;
+}
+
+ul ul {
+  list-style-type: none;
+}
+
+strong, b {
+  color: var(--text-primary);
+}
+
+em {
+  color: var(--text-secondary);
+  margin-bottom: var(--sp-3);
+}
+
+/* ============================================
+   ССЫЛКИ
+   ============================================ */
 a {
   color: var(--link);
   text-decoration: none;
@@ -116,11 +142,33 @@ a:hover {
   text-decoration: underline;
 }
 
-ul, ol {
-  margin: var(--sp-2) 0 var(--sp-4) var(--sp-3);
+/* Ссылки-якоря - без стилей */
+a[id] {
+  color: inherit !important;
+  text-decoration: none !important;
 }
 
+a[id]:hover {
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
+/* Ссылки без href */
+a:not([href]) {
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
+a:not([href]):hover {
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
+/* ============================================
+   КОД
+   ============================================ */
 code {
+  font-family: "SF Mono", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", monospace;
   background: var(--text-primary);
   padding: var(--sp-1);
   border-radius: calc(var(--radius) / 2);
@@ -143,6 +191,9 @@ pre code {
   color: var(--bg-block);
 }
 
+/* ============================================
+   ТАБЛИЦЫ
+   ============================================ */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -150,6 +201,8 @@ table {
   background: var(--bg-block);
   border-radius: var(--radius);
   overflow: hidden;
+  display: block;
+  overflow-x: auto;
 }
 
 th {
@@ -169,18 +222,46 @@ tr:last-child td {
   border-bottom: none;
 }
 
+td, th {
+  white-space: normal;
+  word-wrap: break-word;
+  min-width: 100px;
+}
+
+/* ============================================
+   ЦИТАТЫ
+   ============================================ */
 blockquote {
   background: var(--bg-block);
   border-left: var(--sp-1) solid var(--accent);
-  padding: var(--sp-2) var(--sp-3);
+  padding: var(--sp-3);
   margin: var(--sp-2) 0;
-  border-radius: var(--radius);
+  border-radius: calc(var(--radius) / 2);
 }
 
+blockquote > p {
+  margin: 0 !important;
+}
+
+blockquote, td, th {
+  color: var(--text-primary);
+  font-size: var(--fs-sm);
+  margin-bottom: var(--sp-4);
+}
+
+/* ============================================
+   ИЗОБРАЖЕНИЯ
+   ============================================ */
 img {
   max-width: 100%;
   height: auto;
   border-radius: var(--radius);
+  margin: var(--sp-4) auto;
+  display: block;
+}
+
+/* Обычное изображение без подписи */
+img:not(.has-caption) {
   margin: var(--sp-4) auto;
   display: block;
 }
@@ -197,7 +278,7 @@ img {
   display: block;
 }
 
-/* Подпись */
+/* Подпись под изображением */
 .image-caption {
   display: block;
   font-style: italic;
@@ -207,12 +288,41 @@ img {
   margin-bottom: 0;
 }
 
-/* Обычное изображение без подписи (не в контейнере) */
-img:not(.has-caption) {
-  margin: var(--sp-4) auto;
+/* ============================================
+   КНОПКА ВВЕРХ
+   ============================================ */
+#backToTop {
+  display: none;
+  position: fixed;
+  bottom: var(--sp-4);
+  right: var(--sp-3);
+  width: calc(var(--sp-4) * 1.5);
+  height: calc(var(--sp-4) * 1.5);
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--bg-content);
+  cursor: pointer;
+  z-index: 999;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: background 0.2s;
+}
+
+#backToTop:hover {
+  background: var(--bg-block);
+}
+
+#backToTop svg {
+  width: 24px;
+  height: 24px;
+  fill: var(--text-secondary);
   display: block;
 }
 
+/* ============================================
+   НАВИГАЦИЯ
+   ============================================ */
 .navigation {
   margin: var(--sp-2) 0;
 }
@@ -226,47 +336,4 @@ img:not(.has-caption) {
 .navigation a:hover {
   color: var(--accent);
   text-decoration: none;
-}
-
-strong, b {
-  color: var(--text-primary);
-}
-
-a[id] {
-  color: inherit !important;
-  text-decoration: none !important;
-}
-
-a[id]:hover {
-  color: inherit !important;
-  text-decoration: none !important;
-}
-
-a:not([href]) {
-  color: inherit !important;
-  text-decoration: none !important;
-}
-
-a:not([href]):hover {
-  color: inherit !important;
-  text-decoration: none !important;
-}
-
-ul {
-  list-style-type: disc;
-}
-
-ul ul {
-  list-style-type: none;
-}
-
-table {
-  display: block;
-  overflow-x: auto;
-}
-
-td, th {
-  white-space: normal;
-  word-wrap: break-word;
-  min-width: 100px;
 }
