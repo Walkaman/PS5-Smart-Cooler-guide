@@ -7,19 +7,58 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<!-- Якорь для кнопки "наверх" (на случай, если scrollTo не сработает) -->
+<div id="top"></div>
+
 <div id="content"></div>
-<button id="backToTop" onclick="document.getElementById('top').scrollIntoView()">
+
+<button id="backToTop" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">
   <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px">
     <path d="M480-528 296-344l-56-56 240-240 240 240-56 56-184-184Z"/>
   </svg>
 </button>
+
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <script>
 marked.setOptions({
   gfm: true,
-  breaks: true
+  breaks: true,
+  headerIds: true,         // ✅ добавляем ID заголовкам для якорей
+  headerPrefix: ''
 });
 
+// ============================================================
+// 1. АВТОМАТИЧЕСКАЯ ТЁМНАЯ ТЕМА (надёжное определение)
+// ============================================================
+(function initTheme() {
+  const darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
+  const lightQuery = window.matchMedia('(prefers-color-scheme: light)');
+
+  function applyTheme() {
+    if (darkQuery.matches) {
+      document.body.classList.add('dark');
+    } else if (lightQuery.matches || window.matchMedia('(prefers-color-scheme: no-preference)').matches) {
+      document.body.classList.remove('dark');
+    } else {
+      document.body.classList.remove('dark');
+    }
+  }
+
+  applyTheme();
+
+  const handler = () => applyTheme();
+  if (darkQuery.addEventListener) {
+    darkQuery.addEventListener('change', handler);
+    lightQuery.addEventListener('change', handler);
+  } else if (darkQuery.addListener) {
+    darkQuery.addListener(handler);
+    lightQuery.addListener(handler);
+  }
+})();
+
+// ============================================================
+// 2. ЗАГРУЗКА README.md
+// ============================================================
 fetch('/PS5-Smart-Cooler-guide/README.md?t=' + Date.now())
   .then(r => {
     if (!r.ok) throw new Error('README.md не найден');
@@ -29,20 +68,14 @@ fetch('/PS5-Smart-Cooler-guide/README.md?t=' + Date.now())
     const container = document.getElementById('content');
     container.innerHTML = marked.parse(md);
     
-    // === ОБРАБОТКА ИЗОБРАЖЕНИЙ И ПОДПИСЕЙ ===
-    
-    // 1. Сначала находим все img и их родительские p
+    // --- Обработка изображений с подписями ---
     const imageParagraphs = container.querySelectorAll('p:has(img)');
-    
     imageParagraphs.forEach(p => {
       const img = p.querySelector('img');
       if (!img) return;
       
-      // Проверяем, есть ли после этого p элемент em (внутри другого p)
       let nextP = p.nextElementSibling;
       let captionEm = null;
-      
-      // Ищем следующий p, который содержит em и не содержит img
       while (nextP && nextP.tagName === 'P') {
         const em = nextP.querySelector('em');
         if (em && !nextP.querySelector('img')) {
@@ -53,66 +86,51 @@ fetch('/PS5-Smart-Cooler-guide/README.md?t=' + Date.now())
       }
       
       if (captionEm) {
-        // Создаём обёртку для img и подписи
         const wrapper = document.createElement('div');
         wrapper.className = 'image-with-caption';
-        
-        // Переносим img в обёртку (без p)
         p.parentNode.insertBefore(wrapper, p);
         wrapper.appendChild(img);
+        if (p.childNodes.length === 0) p.remove();
         
-        // Удаляем пустой p после переноса img
-        if (p.childNodes.length === 0) {
-          p.remove();
-        }
-        
-        // Переносим em в обёртку (без p)
         const emParent = captionEm.parentNode;
         wrapper.appendChild(captionEm);
+        if (emParent && emParent.childNodes.length === 0) emParent.remove();
         
-        // Удаляем пустой p после переноса em
-        if (emParent && emParent.childNodes.length === 0) {
-          emParent.remove();
-        }
-        
-        // Применяем стили через CSS классы
         img.classList.add('has-caption');
         captionEm.classList.add('image-caption');
       } else {
-        // Если подписи нет, просто убираем обёртку p
         p.parentNode.replaceChild(img, p);
       }
     });
     
-    // === ОБРАБОТКА ССЫЛОК ===
+    // --- Ссылки в новом окне (кроме якорных) ---
     container.querySelectorAll('a[href]').forEach(el => {
       const href = el.getAttribute('href');
-      if (href && href.startsWith('#')) {
-        return;
-      }
+      if (href && href.startsWith('#')) return; // якоря не трогаем
       el.setAttribute('target', '_blank');
       el.setAttribute('rel', 'noopener noreferrer');
     });
-    
-    // === ПОКАЗ КНОПКИ ТОЛЬКО ПОСЛЕ WARNING ===
-    const warningElement = document.getElementById('warning');
-    const backToTopBtn = document.getElementById('backToTop');
-    
-    function toggleBackToTop() {
-      if (!warningElement) return;
-      const warningRect = warningElement.getBoundingClientRect();
-      // Если верх warning скрыт (ушел вверх за экран)
-      if (warningRect.top < 0) {
-        backToTopBtn.style.display = 'flex';
-      } else {
-        backToTopBtn.style.display = 'none';
-      }
-    }
-    
-    // Проверяем при скролле
-    window.addEventListener('scroll', toggleBackToTop);
-    // Проверяем сразу после загрузки
-    setTimeout(toggleBackToTop, 100);
+
+    // ============================================================
+    // 3. ПЛАВНАЯ НАВИГАЦИЯ ДЛЯ ВСЕХ ЯКОРНЫХ ССЫЛОК
+    // ============================================================
+    container.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      const href = anchor.getAttribute('href');
+      if (href === '#') return; // пустой якорь игнорируем
+
+      anchor.addEventListener('click', function(e) {
+        const targetId = href.substring(1);
+        if (!targetId) return;
+
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+          e.preventDefault(); // отключаем стандартный прыжок
+          targetElement.scrollIntoView({ behavior: 'smooth' });
+          // обновляем хеш в адресной строке (без перезагрузки)
+          history.pushState(null, null, href);
+        }
+      });
+    });
   })
   .catch(err => {
     document.getElementById('content').innerHTML = `
@@ -123,6 +141,22 @@ fetch('/PS5-Smart-Cooler-guide/README.md?t=' + Date.now())
       </div>
     `;
   });
+
+// ============================================================
+// 4. КНОПКА «НАВЕРХ» (появляется после прокрутки)
+// ============================================================
+const backToTopBtn = document.getElementById('backToTop');
+
+function toggleBackToTop() {
+  if (window.scrollY > 300) {
+    backToTopBtn.style.display = 'flex';
+  } else {
+    backToTopBtn.style.display = 'none';
+  }
+}
+
+window.addEventListener('scroll', toggleBackToTop);
+window.addEventListener('load', toggleBackToTop);
 </script>
 </body>
 </html>
