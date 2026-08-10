@@ -1,5 +1,5 @@
 /* ============================================
-   ROOT ПЕРЕМЕННЫЕ
+   ROOT ПЕРЕМЕННЫЕ (светлая тема по умолчанию)
    ============================================ */
 :root {
   /* Цвета */
@@ -11,6 +11,10 @@
   --accent: #47acff;
   --link: #0058cc;
   --border: #00000020;
+  
+  /* Для кода */
+  --code-bg: #000000;
+  --code-color: #f0f0f0;
   
   /* Размеры шрифтов */
   --fs-xs: 0.7rem;
@@ -31,6 +35,46 @@
 }
 
 /* ============================================
+   ТЁМНАЯ ТЕМА (активируется классом .dark на body)
+   ============================================ */
+.dark {
+  --bg-body: #121212;
+  --bg-content: #1e1e1e;
+  --bg-block: #2a2a2a;
+  --text-primary: #e0e0e0;
+  --text-secondary: #aaaaaa;
+  --accent: #0091ff;
+  --link: #4099ff;
+  --border: #444444;
+  --code-bg: #000000;
+  --code-color: #d4d4d4;
+}
+
+.dark #content {
+  color: var(--text-primary);
+}
+
+/* Ссылки оставляем синими */
+.dark #content a {
+  color: var(--link);
+}
+
+.dark #content a:hover {
+  color: var(--accent);
+}
+
+/* Код и пре — отдельно (уже светлые) */
+.dark #content code,
+.dark #content pre {
+  color: var(--code-color);
+}
+
+/* Для всех остальных элементов внутри контента — наследуем цвет */
+.dark #content * {
+  color: inherit;
+}
+
+/* ============================================
    RESET & БАЗА
    ============================================ */
 * {
@@ -46,16 +90,15 @@ body {
   line-height: 1.7;
   font-size: var(--fs-md);
   max-width: 100%;
+  transition: background 0.2s, color 0.2s;
 }
 
-/* ============================================
-   КОНТЕНТ
-   ============================================ */
 #content {
   background: var(--bg-content);
   padding: var(--sp-3) var(--sp-3);
   max-width: 800px;
   margin: 0 auto;
+  transition: background 0.2s;
 }
 
 /* ============================================
@@ -79,7 +122,6 @@ h2 {
   padding-left: var(--sp-3);
 }
 
-/* Полоска слева у h2 */
 h2::before {
   content: '';
   position: absolute;
@@ -116,7 +158,6 @@ ul, ol {
 ul {
   list-style-type: disc;
 }
-
 ul ul {
   list-style-type: none;
 }
@@ -137,28 +178,21 @@ a {
   color: var(--link);
   text-decoration: none;
 }
-
 a:hover {
   text-decoration: underline;
 }
-
-/* Ссылки-якоря - без стилей */
 a[id] {
   color: inherit !important;
   text-decoration: none !important;
 }
-
 a[id]:hover {
   color: inherit !important;
   text-decoration: none !important;
 }
-
-/* Ссылки без href */
 a:not([href]) {
   color: inherit !important;
   text-decoration: none !important;
 }
-
 a:not([href]):hover {
   color: inherit !important;
   text-decoration: none !important;
@@ -169,15 +203,15 @@ a:not([href]):hover {
    ============================================ */
 code {
   font-family: "SF Mono", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", monospace;
-  background: var(--text-primary);
+  background: var(--code-bg);
   padding: var(--sp-1);
   border-radius: calc(var(--radius) / 2);
   font-size: var(--fs-sm);
-  color: var(--bg-block);
+  color: var(--code-color);
 }
 
 pre {
-  background: var(--text-primary);
+  background: var(--code-bg);
   padding: var(--sp-3);
   border-radius: calc(var(--radius) / 2);
   overflow: auto;
@@ -188,7 +222,7 @@ pre code {
   background: none;
   padding: 0;
   font-size: var(--fs-sm);
-  color: var(--bg-block);
+  color: var(--code-color);
 }
 
 /* ============================================
@@ -216,6 +250,7 @@ th {
 td {
   padding: var(--sp-2) var(--sp-3);
   border-bottom: 1px solid var(--border);
+  color: var(--text-primary);
 }
 
 tr:last-child td {
@@ -260,25 +295,21 @@ img {
   display: block;
 }
 
-/* Обычное изображение без подписи */
 img:not(.has-caption) {
   margin: var(--sp-4) auto;
   display: block;
 }
 
-/* Контейнер для изображения с подписью */
 .image-with-caption {
   margin: var(--sp-4) auto;
   display: block;
 }
 
-/* Изображение внутри контейнера - без нижнего отступа */
 .image-with-caption img.has-caption {
   margin: 0 auto;
   display: block;
 }
 
-/* Подпись под изображением */
 .image-caption {
   display: block;
   font-style: italic;
@@ -306,7 +337,7 @@ img:not(.has-caption) {
   align-items: center;
   justify-content: center;
   padding: 0;
-  transition: background 0.2s;
+  transition: background 0.2s, border-color 0.2s;
 }
 
 #backToTop:hover {
@@ -321,18 +352,16 @@ img:not(.has-caption) {
 }
 
 /* ============================================
-   НАВИГАЦИЯ
+   НАВИГАЦИЯ (если понадобится)
    ============================================ */
 .navigation {
   margin: var(--sp-2) 0;
 }
-
 .navigation a {
   color: var(--link);
   font-weight: 500;
   padding: var(--sp-1) var(--sp-2);
 }
-
 .navigation a:hover {
   color: var(--accent);
   text-decoration: none;
