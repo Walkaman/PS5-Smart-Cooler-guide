@@ -45,7 +45,7 @@
   --text-secondary: #aaaaaa;
   --accent: #0091ff;
   --link: #4099ff;
-  --border: #444444;
+  --border: #ffffff20;
   --code-bg: #000000;
   --code-color: #d4d4d4;
 }
@@ -260,7 +260,7 @@ tr:last-child td {
 td, th {
   white-space: normal;
   word-wrap: break-word;
-  min-width: 100px;
+  min-width: 200px;
 }
 
 /* ============================================
