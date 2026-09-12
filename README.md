@@ -21,6 +21,7 @@
 - [2. ПОДКЛЮЧЕНИЕ И НАСТРОЙКА](#02)
   - [2.1 Подготовка микроконтроллера](#02-01)
   - [2.2 Подключение к плате PS5](#02-02)
+  - [2.2.1 Подключение к плате PS5](#02-02-01)
   - [2.3 Настройка контроллера](#02-03)
   - [2.4 Веб-интерфейс монитора](#02-04)
 - [3. ИНСТРУКЦИЯ ПО ЭКСПЛУАТАЦИИ](#03)
@@ -208,27 +209,27 @@ System Ready (Hardware Sync)
 
 ### <a id="02-02-01"> 2.2.1 Примеры установки на PS5 Slim 1 rev
 
-![image](media/installation example1.jpg)
+![image](media/installationexample1.png)
 
 *Подключение проводов к дополнительной плате*
 
-![image](media/installation example2.jpg)
+![image](media/installationexample2.png)
 
 *Модернизация антенны Wi-Fi для лучшей стабильности*
 
-![image](media/installation example3.jpg)
+![image](media/installationexample3.png)
 
 *подключение проводов к плате приставки sda, scl, 5v*
 
-![image](media/installation example4.jpg)
+![image](media/installationexample4.png)
 
 *Укладка и вывод проводов из под охлаждающей панели*
 
-![image](media/installation example5.jpg)
+![image](media/installationexample5.png)
 
 *Укладка проводов на значительном расстоянии от штатных радиантенн консоли*
 
-![image](media/installation example6.jpg)![image](media/installation example7.jpg)
+![image](media/installationexample6.png)![image](media/installationexample7.png)
 
 *Температуры до и после установки PS5 Smart Cooler(профиль управления вентилятора "по кривой", базовый андервольт)*
 
