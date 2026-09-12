@@ -227,7 +227,7 @@ System Ready (Hardware Sync)
 
 ![image](media/installationexample5.png)
 
-*Укладка проводов на значительном расстоянии от штатных радиантенн консоли*
+*Укладка проводов на значительном расстоянии от штатных радиоантенн консоли*
 
 ![image](media/installationexample6.png)![image](media/installationexample7.png)
 
