@@ -206,6 +206,32 @@ System Ready (Hardware Sync)
 
 *Точки подключения на Pro версиях*
 
+### <a id="02-02-01"> 2.2.1 Примеры установки на PS5 Slim 1 rev
+
+![image](media/installation example1.jpg)
+
+*Подключение проводов к дополнительной плате*
+
+![image](media/installation example2.jpg)
+
+*Модернизация антенны Wi-Fi для лучшей стабильности*
+
+![image](media/installation example3.jpg)
+
+*подключение проводов к плате приставки sda, scl, 5v*
+
+![image](media/installation example4.jpg)
+
+*Укладка и вывод проводов из под охлаждающей панели*
+
+![image](media/installation example5.jpg)
+
+*Укладка проводов на значительном расстоянии от штатных радиантенн консоли*
+
+![image](media/installation example6.jpg)![image](media/installation example7.jpg)
+
+*Температуры до и после установки PS5 Smart Cooler(профиль управления вентилятора "по кривой", базовый андервольт)*
+
 ### <a id="02-03"> 2.3 Настройка контроллера
 
 После прошивки и подключения питания контроллер необходимо настроить для работы в вашей Wi-Fi сети.
