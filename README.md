@@ -1170,13 +1170,13 @@ Device ID отображается в окне монитора порта и в
 
 ## 13. Поддержка и полезные ссылки
 
-- **Установщик полной версии:** [Скачать](ССЫЛКА_НА_УСТАНОВЩИК_FULL)
-- **Установщик бесплатной версии:** [Скачать](ССЫЛКА_НА_УСТАНОВЩИК_MONITORING)
-- **Чат поддержки PS5 Smart Cooler:** [Telegram](ССЫЛКА_НА_ГРУППУ_ПОДДЕРЖКИ)
-- **Видео установки на PS5 Fat:** [YouTube](ССЫЛКА_НА_ВИДЕО_FAT)
-- **Видео установки на PS5 Slim:** [YouTube](ССЫЛКА_НА_ВИДЕО_SLIM)
-- **Видео по Voltage Control:** [YouTube](ССЫЛКА_НА_ВИДЕО_VOLTAGE_CONTROL)
-- **Связь с разработчиком:** [Telegram](ССЫЛКА_НА_КОНТАКТ_РАЗРАБОТЧИКА)
+- **Установщик полной версии:** [Скачать](https://github.com/Walkaman/PS5-Smart-Cooler-guide/blob/ce2f6a940f70e5ad85f635d78d71dc731c30684d/PS5_Smart_Cooler_Installer_Full.exe)
+- **Установщик бесплатной версии:** [Скачать](https://github.com/Walkaman/PS5-Smart-Cooler-guide/blob/ce2f6a940f70e5ad85f635d78d71dc731c30684d/PS5_Smart_Cooler_Installer_Monitoring.exe)
+- **Чат поддержки PS5 Smart Cooler:** [Telegram](https://t.me/+HshEu_6JjWMwMmRi)
+- **Видео установки на PS5 Fat:** [YouTube](https://www.youtube.com/live/6mHofX9iMcQ)
+- **Видео установки на PS5 Slim:** [YouTube](https://www.youtube.com/watch?v=EusiEZ82cIY&t=4543s)
+- **Видео по Voltage Control:** [YouTube](https://www.youtube.com/watch?v=Pdyqm3NXqZM)
+- **Связь с разработчиком:** [Telegram](@Walkman_Life_tv)
 
 При обращении укажите модель и ревизию PS5, версию прошивки, Device ID, описание симптома и выполненные проверки. Если проблема возникает до появления Device ID, укажите версию Windows и название устройства из диспетчера устройств.
 
