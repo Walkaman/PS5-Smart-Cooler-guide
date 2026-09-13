@@ -67,6 +67,23 @@ fetch('/PS5-Smart-Cooler-guide/README.md?t=' + Date.now())
   .then(md => {
     const container = document.getElementById('content');
     container.innerHTML = marked.parse(md);
+
+    // Определяем типы информационных блоков
+    container.querySelectorAll('blockquote').forEach(blockquote => {
+      const label = blockquote
+        .querySelector('p > strong:first-child')
+        ?.textContent
+        .trim()
+        .toLowerCase() || '';
+
+      if (label.startsWith('примечание')) {
+        blockquote.classList.add('callout-note');
+      } else if (label.startsWith('важно')) {
+        blockquote.classList.add('callout-important');
+      } else if (label.startsWith('внимание')) {
+        blockquote.classList.add('callout-warning');
+      }
+    });
     
     // --- Обработка изображений с подписями ---
     const imageParagraphs = container.querySelectorAll('p:has(img)');

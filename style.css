@@ -44,7 +44,7 @@
   --text-primary: #e0e0e0;
   --text-secondary: #aaaaaa;
   --accent: #0091ff;
-  --link: #4099ff;
+  --link: #5ea9ff;
   --border: #ffffff20;
   --code-bg: #000000;
   --code-color: #d4d4d4;
@@ -99,6 +99,12 @@ body {
   max-width: 800px;
   margin: 0 auto;
   transition: background 0.2s;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin-top: calc(var(--sp-4) * 2);
 }
 
 /* ============================================
@@ -272,6 +278,39 @@ blockquote {
   padding: var(--sp-3);
   margin: var(--sp-2) 0;
   border-radius: calc(var(--radius) / 2);
+}
+
+/* Примечание — стандартный синий акцент */
+blockquote.callout-note {
+  background: #eef7ff;
+  border-left-color: var(--accent);
+}
+
+/* Важно — жёлтый акцент */
+blockquote.callout-important {
+  background: #fff8dc;
+  border-left-color: #e0a000;
+}
+
+/* Внимание — красный акцент */
+blockquote.callout-warning {
+  background: #fff0f0;
+  border-left-color: #d63c3c;
+}
+
+/* Цвета для тёмной темы */
+.dark blockquote.callout-note {
+  background: #172a3a;
+}
+
+.dark blockquote.callout-important {
+  background: #352d17;
+  border-left-color: #ffc107;
+}
+
+.dark blockquote.callout-warning {
+  background: #381d1d;
+  border-left-color: #ff5252;
 }
 
 blockquote > p {
