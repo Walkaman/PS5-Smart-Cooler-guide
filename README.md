@@ -1176,7 +1176,7 @@ Device ID отображается в окне монитора порта и в
 - **Видео установки на PS5 Fat:** [YouTube](https://www.youtube.com/live/6mHofX9iMcQ)
 - **Видео установки на PS5 Slim:** [YouTube](https://www.youtube.com/watch?v=EusiEZ82cIY&t=4543s)
 - **Видео по Voltage Control:** [YouTube](https://www.youtube.com/watch?v=Pdyqm3NXqZM)
-- **Связь с разработчиком:** [Telegram](@Walkman_Life_tv)
+- **Связь с разработчиком:** [Telegram](http://t.me/Walkman_Life_tv)
 
 При обращении укажите модель и ревизию PS5, версию прошивки, Device ID, описание симптома и выполненные проверки. Если проблема возникает до появления Device ID, укажите версию Windows и название устройства из диспетчера устройств.
 
