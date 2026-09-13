@@ -140,7 +140,7 @@ PS5 Smart Cooler - аппаратная модификация, расширяю
 
 ### 2.2 Выбор установщика
 
-- **Бесплатная версия:** [`PS5_Smart_Cooler_Installer_Monitoring.exe`](ССЫЛКА_НА_УСТАНОВЩИК_MONITORING)
+- **Бесплатная версия:** [`PS5_Smart_Cooler_Installer_Monitoring.exe`]([PS5_Smart_Cooler_Installer_Monitoring.exe](https://github.com/Walkaman/PS5-Smart-Cooler-guide/blob/main/PS5_Smart_Cooler_Installer_Monitoring.exe))
 - **Полная версия:** [`PS5_Smart_Cooler_Installer_Full.exe`](ССЫЛКА_НА_УСТАНОВЩИК_FULL)
 
 Для полной версии установщик проверяет Device ID в базе лицензий. Если появляется сообщение `ID НЕТ В БАЗЕ`, передайте Device ID разработчику, дождитесь его добавления и перезапустите установщик.
