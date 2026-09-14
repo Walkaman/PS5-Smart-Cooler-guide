@@ -140,8 +140,8 @@ PS5 Smart Cooler - аппаратная модификация, расширяю
 
 ### 2.2 Выбор установщика
 
-- **Бесплатная версия:** [`PS5_Smart_Cooler_Installer_Monitoring.exe`](https://github.com/Walkaman/PS5-Smart-Cooler-guide/blob/2bb614b6071ab05581cc54e48a3f43e096d4a448/PS5_Smart_Cooler_Installer_Monitoring.exe)
-- **Полная версия:** [`PS5_Smart_Cooler_Installer_Full.exe`](https://github.com/Walkaman/PS5-Smart-Cooler-guide/blob/1ec2dffbb6a9f1941c8aa790d85ddef112d48329/PS5_Smart_Cooler_Installer_Full.exe)
+- **Бесплатная версия:** [`PS5_Smart_Cooler_Installer_Monitoring.exe`](https://raw.githubusercontent.com/Walkaman/PS5-Smart-Cooler-guide/ce2f6a940f70e5ad85f635d78d71dc731c30684d/PS5_Smart_Cooler_Installer_Monitoring.exe)
+- **Полная версия:** [`PS5_Smart_Cooler_Installer_Full.exe`](https://raw.githubusercontent.com/Walkaman/PS5-Smart-Cooler-guide/ce2f6a940f70e5ad85f635d78d71dc731c30684d/PS5_Smart_Cooler_Installer_Full.exe)
 
 Для полной версии установщик проверяет Device ID в базе лицензий. Если появляется сообщение `ID НЕТ В БАЗЕ`, передайте Device ID разработчику, дождитесь его добавления и перезапустите установщик.
 
@@ -1170,8 +1170,8 @@ Device ID отображается в окне монитора порта и в
 
 ## 13. Поддержка и полезные ссылки
 
-- **Установщик полной версии:** [Скачать](https://github.com/Walkaman/PS5-Smart-Cooler-guide/blob/ce2f6a940f70e5ad85f635d78d71dc731c30684d/PS5_Smart_Cooler_Installer_Full.exe)
-- **Установщик бесплатной версии:** [Скачать](https://github.com/Walkaman/PS5-Smart-Cooler-guide/blob/ce2f6a940f70e5ad85f635d78d71dc731c30684d/PS5_Smart_Cooler_Installer_Monitoring.exe)
+- **Установщик полной версии:** [Скачать](https://raw.githubusercontent.com/Walkaman/PS5-Smart-Cooler-guide/ce2f6a940f70e5ad85f635d78d71dc731c30684d/PS5_Smart_Cooler_Installer_Full.exe)
+- **Установщик бесплатной версии:** [Скачать](https://raw.githubusercontent.com/Walkaman/PS5-Smart-Cooler-guide/ce2f6a940f70e5ad85f635d78d71dc731c30684d/PS5_Smart_Cooler_Installer_Monitoring.exe)
 - **Чат поддержки PS5 Smart Cooler:** [Telegram](https://t.me/+HshEu_6JjWMwMmRi)
 - **Видео установки на PS5 Fat:** [YouTube](https://www.youtube.com/live/6mHofX9iMcQ)
 - **Видео установки на PS5 Slim:** [YouTube](https://www.youtube.com/watch?v=EusiEZ82cIY&t=4543s)
